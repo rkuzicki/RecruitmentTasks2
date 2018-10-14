@@ -31,10 +31,7 @@ def prepare_output(data):
         res['avg_price'].append(dataframe['pln_price'].mean())
         res['currency'].append('PLN')
         ignored_products_count = counts[dataframe.iloc[0]['matching_id']] - dataframe.iloc[0]['top_priced_count']
-        if ignored_products_count >= 0:
-            res['ignored_products_count'].append(ignored_products_count)
-        else:
-            res['ignored_products_count'].append(0)
+        res['ignored_products_count'].append(ignored_products_count if ignored_products_count >= 0 else 0)
     return res
 
 
