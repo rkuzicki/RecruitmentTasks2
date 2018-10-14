@@ -13,7 +13,7 @@ class TestValuationService(unittest.TestCase):
         currencies_dict = {'currency': ['PLN', 'EUR', 'JPY'],
                            'ratio': [1, 2, 3]}
         matchings_dict = {'matching_id': [1, 2, 3],
-                          'top_priced_count': [1, 2, 3]}
+                          'top_priced_count': [1, 2, 4]}
         self.data = pd.DataFrame.from_dict(data_dict)
         self.currencies = pd.DataFrame.from_dict(currencies_dict)
         self.matching = pd.DataFrame.from_dict(matchings_dict)
@@ -25,7 +25,7 @@ class TestValuationService(unittest.TestCase):
 
     def test_merged_dataframe(self):
         expected_prices = [1, 8, 9, 20, 6, 2, 36, 8, 4]
-        expected_top_priced_counts = [1, 1, 1, 2, 2, 2, 3, 3, 3]
+        expected_top_priced_counts = [1, 1, 1, 2, 2, 2, 4, 4, 4]
         merged_dataframe = v.merge_dataframes(self.data, self.currencies, self.matching)
         self.assertEqual(list(merged_dataframe['pln_price'].values), expected_prices)
         self.assertEqual(list(merged_dataframe['top_priced_count'].values), expected_top_priced_counts)
