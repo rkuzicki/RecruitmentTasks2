@@ -12,7 +12,7 @@ def parse_args():
         if 1 <= begin < end <= 10000:
             return begin, end
         else:
-            print('The input does not satisfy requirements. Use numbers between 0 and 10000, with the second argument '
+            print('The input does not satisfy requirements. Use numbers between 1 and 10000, with the second argument '
                   'bigger than the first one. ')
             exit(1)
 

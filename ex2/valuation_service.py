@@ -42,7 +42,6 @@ def valuation_service():
 
     merged_data = merge_dataframes(data, currencies, matching)
     res = pd.DataFrame.from_dict(prepare_output(merged_data))
-    print(res)
 
     res.to_csv('csv/top_products.csv', index=False)
 
